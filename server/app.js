@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 //Route Imports
-
+var listings = require('./routes/listings.js');
 //Database Variables
 var mongoose = require("mongoose");
 var mongoURI = "mongodb://localhost:27017/realestate";
@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("./server/public/"));
 
 //Routes
+app.use("/listings", listings);
 app.get("/", function(req,res){
   res.sendFile(path.resolve("server/public/views/index.html"));
 });
