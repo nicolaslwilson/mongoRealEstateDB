@@ -1,0 +1,20 @@
+.listing-container {
+  text-align: center;
+  padding: 1em;
+}
+
+.placeholder-icon {
+  font-size: 2em;
+}
+
+.typeFlare {
+  color: white;
+}
+
+.Sale .typeFlare {
+  background-color: rgb(35, 148, 74);
+}
+
+.Rent .typeFlare {
+  background-color: rgb(55, 74, 203);
+}

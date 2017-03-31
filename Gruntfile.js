@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         }
       },
       clientFiles: {
-        files: ["client/scripts/*.js", "client/views/*.html"],
+        files: ["client/scripts/*.js", "client/views/*.html", "client/styles/style.css"],
         tasks: ['uglify', 'copy']
       }
     }
@@ -44,7 +44,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-jsdoc');
 
   grunt.registerTask('default', ['uglify', 'copy', 'watch']);
 };

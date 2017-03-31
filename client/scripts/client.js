@@ -3,21 +3,48 @@ var realEstateListingsApp = function () {
   exports.refreshListings = function () {
     getListings();
   };
+  exports.submitListing = function (listingObject) {
+    postListing(listingObject);
+  };
   var appendListings = function (listingsArray) {
     for (var i = 0; i < listingsArray.length; i++) {
       $('#listingsContainer').append(createListingElement(listingsArray[i]));
     }
   };
   var createListingElement = function (listingObject) {
-    var type = listingObject.cost ? "sale" : "rent";
+    var type = listingObject.cost ? "Sale" : "Rent";
     var $el = $('<div>')
-              .addClass('listing')
               .addClass('col-xs-12 col-sm-6 col-md-4')
               .addClass(type)
               .data("id", listingObject._id)
               .append(
-                $('<p>')
-                .text("For" + type)
+                $('<div>')
+                .addClass('listing-container')
+                .append(
+                  $('<p>')
+                  .addClass('placeholder-icon')
+                  .addClass('glyphicon glyphicon-home')
+                )
+                .append(
+                  $('<p>')
+                  .addClass('square-feet')
+                  .text(listingObject.sqft + " Sq. Feet")
+                )
+                .append(
+                  $('<p>')
+                  .addClass('price')
+                  .text("$" + (listingObject.cost ? (listingObject.cost) : (listingObject.rent + " per Month")))
+                )
+                .append(
+                  $('<p>')
+                  .addClass('location')
+                  .text(listingObject.city)
+                )
+                .append(
+                  $('<p>')
+                  .addClass('typeFlare')
+                  .text("For " + type)
+                )
               );
     return $el;
   };
@@ -34,10 +61,57 @@ var realEstateListingsApp = function () {
 
   };
 
+  var postListing = function (listingObject) {
+    $.ajax({
+      url: '/listings',
+      type: 'POST',
+      data: listingObject,
+      success: function (response) {
+        console.log(response);
+        exports.refreshListings();
+      }
+    });
+
+  };
+
   return exports;
 }();
+
+var clickAddListing = function () {
+  $("#postListingModal").modal("show");
+};
+
+var addClickEventListeners = function () {
+  $('#addListingButton').on('click', clickAddListing);
+  $('#postListingModal form').on('submit', clickSubmit);
+  $('#rentRadio').on('click', clickRent);
+  $('#saleRadio').on('click', clickSale);
+};
+
+var clickSubmit = function (event) {
+  event.preventDefault();
+  var type = $('#postPriceInput').data('type');
+  var listingObject = {
+    sqft: $('#postSqftInput').val(),
+    city: $('#postCityInput').val()
+  };
+  listingObject[type] = $('#postPriceInput').val();
+  realEstateListingsApp.submitListing(listingObject);
+  $("#postListingModal").modal("hide");
+};
+
+var clickRent = function () {
+  $('#postPriceInput').data('type', 'rent');
+  $('#priceInputAddon').text(".00 per Month");
+};
+
+var clickSale = function () {
+  $('#postPriceInput').data('type', 'cost');
+  $('#priceInputAddon').text(".00");
+};
 
 $(document).ready(function() {
   console.log("jQuery loads");
   realEstateListingsApp.refreshListings();
+  addClickEventListeners();
 });
