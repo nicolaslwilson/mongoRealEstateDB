@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         }
       },
       clientFiles: {
-        files: ["client/script/*.js", "client/views/*.html"],
+        files: ["client/scripts/*.js", "client/views/*.html"],
         tasks: ['uglify', 'copy']
       }
     }
