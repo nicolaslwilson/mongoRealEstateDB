@@ -1,4 +1,3 @@
-
 {
 	"_id" : ObjectId("58de9673d0c1cb22fbcb2655"),
 	"cost" : 123000,

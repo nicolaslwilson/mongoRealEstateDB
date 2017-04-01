@@ -14,16 +14,17 @@ var realEstateListingsApp = function () {
   var createListingElement = function (listingObject) {
     var type = listingObject.cost ? "Sale" : "Rent";
     var $el = $('<div>')
-              .addClass('col-xs-12 col-sm-6 col-md-4')
+              .addClass('col-xs-12 col-sm-6 col-md-4 col-lg-3')
               .addClass(type)
               .data("id", listingObject._id)
               .append(
                 $('<div>')
                 .addClass('listing-container')
                 .append(
-                  $('<p>')
+                  $('<i>')
                   .addClass('placeholder-icon')
-                  .addClass('glyphicon glyphicon-home')
+                  .attr('aria-hidden', 'true')
+                  .addClass( listingObject.cost ? 'glyphicon glyphicon-home': 'fa fa-building')
                 )
                 .append(
                   $('<p>')

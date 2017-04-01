@@ -25,6 +25,14 @@ module.exports = function(grunt) {
         cwd: "client/styles/",
         src: ["style.css"],
         dest: "server/public/views/"
+      },
+      icons: {
+        expand: true,
+        cwd: "node_modules/",
+        src: ["font-awesome/css/font-awesome.min.css",
+              "font-awesome/fonts/*"
+        ],
+        dest: "server/public/vendors/"
       }
     },
     watch: {
@@ -32,7 +40,8 @@ module.exports = function(grunt) {
         files: [ 'Gruntfile.js', 'config/*.js' ],
         options: {
           reload: true
-        }
+        },
+        tasks: ['uglify', 'copy']
       },
       clientFiles: {
         files: ["client/scripts/*.js", "client/views/*.html", "client/styles/style.css"],
