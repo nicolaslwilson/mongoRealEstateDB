@@ -3,14 +3,17 @@ var realEstateListingsApp = function () {
   exports.refreshListings = function () {
     getListings();
   };
+  
   exports.submitListing = function (listingObject) {
     postListing(listingObject);
   };
+
   var appendListings = function (listingsArray) {
     for (var i = 0; i < listingsArray.length; i++) {
       $('#listingsContainer').append(createListingElement(listingsArray[i]));
     }
   };
+
   var createListingElement = function (listingObject) {
     var type = listingObject.cost ? "Sale" : "Rent";
     var $el = $('<div>')
