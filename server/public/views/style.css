@@ -9,6 +9,16 @@
   overflow: hidden;
 }
 
+.listing-container p {
+  margin: 0;
+  padding: 0.25em;
+  color: rgb(28, 28, 28);
+}
+
+.listing-container .square-feet,
+.listing-container .location {
+  background-color: #d5d5d5;
+}
 
 .placeholder-icon {
   font-size: 3em;
@@ -26,7 +36,7 @@
   background-color: rgb(55, 74, 203);
 }
 
-.typeFlare {
+.listing-container .typeFlare {
   color: white;
   margin: 0;
   padding: 0.5em;

@@ -42,7 +42,7 @@ var realEstateListingsApp = function () {
                   .text(listingObject.city)
                 )
                 .append(
-                  $('<p>')
+                  $('<h5>')
                   .addClass('typeFlare')
                   .text("For " + type)
                 )
@@ -87,6 +87,7 @@ var addClickEventListeners = function () {
   $('#postListingModal form').on('submit', clickSubmit);
   $('#rentRadio').on('click', clickRent);
   $('#saleRadio').on('click', clickSale);
+  $('.listingFilterButtonGroup').on('click', 'button', clickFilter);
 };
 
 var clickSubmit = function (event) {
@@ -109,6 +110,14 @@ var clickRent = function () {
 var clickSale = function () {
   $('#postPriceInput').data('type', 'cost');
   $('#priceInputAddon').text(".00");
+};
+
+var clickFilter = function () {
+  var filter = $(this).data("filter");
+  $('.listingFilterButtonGroup button').removeClass('active');
+  $(this).addClass('active');
+  $('#listingsContainer').children().hide();
+  $('#listingsContainer').children(filter).show();
 };
 
 $(document).ready(function() {

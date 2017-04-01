@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.js" charset="utf-8"></script>
     <!-- Bootstrap -->
@@ -12,7 +14,7 @@
     <!-- Client -->
     <script src="scripts/client.min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="views/style.css">
-    <title></title>
+    <title>Prime Real Estate</title>
 </head>
 
 <body>
@@ -23,8 +25,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
               <button type="button" id="addListingButton" class="btn btn-primary">Add Listing</button>
+            </div>
+            <div class="class-md-6">
+              <div class="btn-group listingFilterButtonGroup" role="group" aria-label="...">
+                  <button id="filterAllButton" type="button" class="btn btn-default active" data-filter="">All</button>
+                  <button id="filterRentalButton"type="button" class="btn btn-default" data-filter=".Rent" data-filter="">Rent</button>
+                  <button id="filterBuyButton" type="button" class="btn btn-default" data-filter=".Sale">Buy</button>
+              </div>
             </div>
         </div>
         <div id="listingsContainer" class="row">
