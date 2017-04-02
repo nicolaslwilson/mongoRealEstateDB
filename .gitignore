@@ -94,3 +94,10 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/osx
+
+
+### grunt ###
+# Grunt usually compiles files inside this directory
+server/public/*
+
+# End of https://www.gitignore.io/api/grunt
