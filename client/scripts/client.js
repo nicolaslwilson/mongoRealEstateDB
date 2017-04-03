@@ -9,6 +9,10 @@ var realEstateListingsApp = function () {
     postListing(listingObject);
   };
 
+  exports.deleteListing = function (id) {
+    deleteListing(id);
+  };
+
   var appendListings = function (listingsArray) {
     for (var i = 0; i < listingsArray.length; i++) {
       $('#listingsContainer').append(createListingElement(listingsArray[i]));
@@ -20,10 +24,20 @@ var realEstateListingsApp = function () {
     var $el = $('<div>')
               .addClass('col-xs-12 col-sm-6 col-md-4 col-lg-3')
               .addClass(type)
-              .data("id", listingObject._id)
               .append(
                 $('<div>')
                 .addClass('listing-container')
+                .data("id", listingObject._id)
+                .append(
+                  $('<i>')
+                  .addClass('glyphicon glyphicon-edit')
+                  .addClass('listingActionButton listingEdit')
+                )
+                .append(
+                  $('<i>')
+                  .addClass('glyphicon glyphicon-remove')
+                  .addClass('listingActionButton listingDelete')
+                )
                 .append(
                   $('<i>')
                   .addClass('placeholder-icon')
@@ -112,6 +126,7 @@ var addClickEventListeners = function () {
   $('#rentRadio').on('click', clickRent);
   $('#saleRadio').on('click', clickSale);
   $('.listingFilterButtonGroup').on('click', 'button', clickFilter);
+  // $('#listingsContainer').on('click', '.listingDelete', clickDelete);
 };
 
 var clickSubmit = function (event) {
@@ -136,6 +151,12 @@ var clickSale = function () {
   $('#postPriceInput').data('type', 'cost');
   $('#priceInputAddon').text(".00");
 };
+
+// var clickDelete = function () {
+//   var id = $(this).closest('.listing-container').data("id");
+//   console.log("delete click ", id);
+//   realEstateListingsApp.deleteListing(id);
+// };
 
 var clickFilter = function () {
   var filter = $(this).data("filter");
