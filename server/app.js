@@ -6,6 +6,7 @@ var path = require("path");
 
 //Route Imports
 var listings = require('./routes/listings.js');
+
 //Database Variables
 var mongoose = require("mongoose");
 var mongoURI = "mongodb://who:password@ds031651.mlab.com:31651/nicsdb";
@@ -18,7 +19,7 @@ MongoDB.on("error", function(err){
 
 //If we successfully hooked up to the database, let us know!
 MongoDB.once("open", function(){
-  console.log("Tots connected to Mongo, meow.");
+  console.log("MongoDB connected.");
 });
 
 //Set the port
@@ -26,7 +27,7 @@ app.set("port", (process.env.PORT || 5000));
 
 //Middleware hookups
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("./server/public/"));
+app.use(express.static("server/public/"));
 
 //Routes
 app.use("/listings", listings);

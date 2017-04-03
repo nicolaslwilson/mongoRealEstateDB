@@ -1,8 +1,8 @@
 # Weekend Challenge 4 - Mongo and Bootstrap
 
-Welcome to weekend challenge 4! This weekend, you will take on the role of an application developer for a real estate company. You will be working with Data that we will be providing to you. It will be a collection called “listings”. Inside of it, you will find information for properties that are either for Rent or for Sale. 
+Welcome to weekend challenge 4! This weekend, you will take on the role of an application developer for a real estate company. You will be working with Data that we will be providing to you. It will be a collection called “listings”. Inside of it, you will find information for properties that are either for Rent or for Sale.
 
-You job, is to get this Data on the DOM, accounting for the inconsistent datatypes that are possible with MongoDB. But additionally, let’s bring in Bootstrap to the mix to make sure that the application looks as good as possible. 
+You job, is to get this Data on the DOM, accounting for the inconsistent datatypes that are possible with MongoDB. But additionally, let’s bring in Bootstrap to the mix to make sure that the application looks as good as possible.
 
 Here are the requirements of the project:
 * Create a Full Stack application from the ground up using jQuery, Node, and MongoDB,
@@ -22,3 +22,7 @@ http://stackoverflow.com/questions/14453864/use-more-than-one-schema-per-collect
 ## Pro Mode
 Host the application on Heroku and mLabs. You will need to transfer the data up to mLabs. In will need to research to accomplish this.
 
+TO DO
+- [ ] Add Badges to Filter Buttons
+- [ ] Add Delete Route
+- [ ] Add Update Route

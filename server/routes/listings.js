@@ -38,4 +38,16 @@ router.post("/", function(req,res){
   });
 });
 
+router.delete("/:id", function(req,res){
+  //Instance of the Model to be saved to the database
+  var id = req.params.id;
+  Listings.findByIdAndRemove(id, function(err, deletedListing){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }
+    res.send(deletedListing);
+  });
+});
+
 module.exports = router;

@@ -21,15 +21,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Prime Real Estate</h1>
+                <h1>Prime Real Estate <small>Rent or Buy in the Twin Cities</small></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-xs-6">
               <button type="button" id="addListingButton" class="btn btn-primary">Add Listing</button>
             </div>
-            <div class="class-md-6">
-              <div class="btn-group listingFilterButtonGroup" role="group" aria-label="...">
+            <div class="col-xs-6">
+              <div class="btn-group listingFilterButtonGroup pull-right" role="group" aria-label="...">
                   <button id="filterAllButton" type="button" class="btn btn-default active" data-filter="">All</button>
                   <button id="filterRentalButton"type="button" class="btn btn-default" data-filter=".Rent" data-filter="">Rent</button>
                   <button id="filterBuyButton" type="button" class="btn btn-default" data-filter=".Sale">Buy</button>
@@ -89,6 +89,16 @@
 
             </div>
         </div>
+    </div>
+    <div class="modal fade alert-modal success-alert" tabindex="-1" role="dialog" data-backdrop="false">
+      <div class="modal-dialog" role="document">
+            <div class="alert alert-success" role="alert">Success</div>
+      </div>
+    </div>
+    <div class="modal fade alert-modal danger-alert" tabindex="-1" role="dialog" data-backdrop="false">
+      <div class="modal-dialog" role="document">
+            <div class="alert alert-danger" role="alert">Fail</div>
+      </div>
     </div>
     <script src="vendors/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
 </body>

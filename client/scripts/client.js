@@ -1,9 +1,10 @@
 var realEstateListingsApp = function () {
   var exports = {};
+
   exports.refreshListings = function () {
     getListings();
   };
-  
+
   exports.submitListing = function (listingObject) {
     postListing(listingObject);
   };
@@ -52,6 +53,12 @@ var realEstateListingsApp = function () {
               );
     return $el;
   };
+
+  var showModalAlert = function (type) {
+    $('.' + type + '-alert').modal("show");
+    setTimeout(function() {   $('.' + type + '-alert').modal("hide"); }, 3000);
+  };
+
   //AJAX functions
   var getListings = function () {
     $.ajax({
@@ -73,6 +80,20 @@ var realEstateListingsApp = function () {
       success: function (response) {
         console.log(response);
         exports.refreshListings();
+        showModalAlert("success");
+      }
+    });
+
+  };
+
+  var deleteListing = function (id) {
+    $.ajax({
+      url: '/listings/' + id,
+      type: 'DELETE',
+      success: function (response) {
+        console.log(response);
+        exports.refreshListings();
+        showModalAlert("danger");
       }
     });
 
@@ -103,6 +124,7 @@ var clickSubmit = function (event) {
   listingObject[type] = $('#postPriceInput').val();
   realEstateListingsApp.submitListing(listingObject);
   $("#postListingModal").modal("hide");
+
 };
 
 var clickRent = function () {
@@ -122,6 +144,8 @@ var clickFilter = function () {
   $('#listingsContainer').children().hide();
   $('#listingsContainer').children(filter).show();
 };
+
+
 
 $(document).ready(function() {
   console.log("jQuery loads");
