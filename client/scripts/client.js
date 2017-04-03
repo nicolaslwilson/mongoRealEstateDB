@@ -14,7 +14,7 @@ var realEstateListingsApp = function () {
   };
 
   var appendListings = function (listingsArray) {
-    for (var i = 0; i < listingsArray.length; i++) {
+    for (var i = listingsArray.length - 1; i >= 0; i--) {
       $('#listingsContainer').append(createListingElement(listingsArray[i]));
     }
   };
