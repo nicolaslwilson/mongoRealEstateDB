@@ -28,7 +28,7 @@ var realEstateListingsApp = function () {
                   $('<i>')
                   .addClass('placeholder-icon')
                   .attr('aria-hidden', 'true')
-                  .addClass( listingObject.cost ? 'glyphicon glyphicon-home': 'fa fa-building')
+                  .addClass( listingObject.cost ? 'fa fa-home': 'fa fa-building')
                 )
                 .append(
                   $('<p>')
