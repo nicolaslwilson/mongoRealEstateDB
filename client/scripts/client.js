@@ -26,6 +26,16 @@ var realEstateListingsApp = function () {
                 .addClass('listing-container')
                 .append(
                   $('<i>')
+                  .addClass('glyphicon glyphicon-edit')
+                  .addClass('listingActionButton listingEdit')
+                )
+                .append(
+                  $('<i>')
+                  .addClass('glyphicon glyphicon-remove')
+                  .addClass('listingActionButton listingDelete')
+                )
+                .append(
+                  $('<i>')
                   .addClass('placeholder-icon')
                   .attr('aria-hidden', 'true')
                   .addClass( listingObject.cost ? 'fa fa-home': 'fa fa-building')

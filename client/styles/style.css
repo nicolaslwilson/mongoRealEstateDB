@@ -27,6 +27,24 @@
   background-color: white;
 }
 
+.listingActionButton {
+  font-size: 2em;
+  margin: 0.5em;
+  display: none;
+}
+
+.listing-container:hover .listingActionButton {
+  display: block;
+}
+
+.listingEdit {
+  float: left;
+}
+
+.listingDelete {
+  float: right;
+}
+
 .listing-container p {
   margin: 0;
   padding: 0.25em;
