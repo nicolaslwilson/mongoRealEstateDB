@@ -9,7 +9,7 @@ var listings = require('./routes/listings.js');
 
 //Database Variables
 var mongoose = require("mongoose");
-var mongoURI = "mongodb://who:password@ds031651.mlab.com:31651/nicsdb";
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/realestate';
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 //If there is an error connecting to the database, let us know!
