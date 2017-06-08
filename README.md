@@ -12,6 +12,29 @@ The assignment for this project was to build a real estate listings page using B
 * Create an interface for adding additional properties to the collection. You will need to give the user an option for either a Rent property, or a Sale property.
 * Host the application on Heroku and mLabs.
 
+## Preview
+
+![preview](PrimeRealEstate.png)
+
+## Technologies Used
+
+* Database
+  * MongoDB
+
+
+* Server-side
+  * NodeJS
+  * Express
+  * Mongoose
+
+
+* Front-end
+  * HTML
+  * CSS
+  * JavaScript
+  * jQuery
+  * Bootstrap
+
 ## Getting Started
 
 To run the code locally:
